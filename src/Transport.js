@@ -34,7 +34,7 @@
                 var factory = mod.factory;
                 if (typeof(factory) === 'function') {
                     var r = createRequire(id, main || m);
-                    var ret = factory(r, m.exports, m);
+                    var ret = factory.call(global, r, m.exports, m);
                     if (ret) {
                         m.exports = ret;
                     }
